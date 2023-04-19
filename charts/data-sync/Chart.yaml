@@ -1,6 +1,6 @@
 apiVersion: v2
 name: data-sync
-description: Deploy Data Sync to a Kubernetes cluster.
+description: Project management application for the Van Egmond Group.
 type: application
 version: 1.0.3
 appVersion: "latest"
