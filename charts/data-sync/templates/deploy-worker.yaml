@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "data-sync.fullname" . }}-worker
+  labels:
+    {{- include "data-sync.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.workerReplicaCount }}
+  selector:
+    matchLabels:
+      {{- include "data-sync.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "data-sync.selectorLabels" . | nindent 8 }}
+    spec:
+      imagePullSecrets:
+        - name: {{ include "data-sync.fullname" . }}-pull
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command: ["php", "artisan", "horizon"]
+          envFrom:
+            - secretRef:
+                name: {{ include "data-sync.fullname" . }}-env
