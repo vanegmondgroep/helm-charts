@@ -41,6 +41,17 @@ entries:
     urls:
     - https://github.com/vanegmondgroep/helm-charts/releases/download/data-sync-1.0.1/data-sync-1.0.1.tgz
     version: 1.0.1
+  mailhog:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-04-19T14:23:07.614232195Z"
+    description: Web and API based SMTP testing.
+    digest: 079822a359ca57374cdc739e6549ce858085483c320f3460bcb0a645f49c1c72
+    name: mailhog
+    type: application
+    urls:
+    - https://github.com/vanegmondgroep/helm-charts/releases/download/mailhog-1.0.0/mailhog-1.0.0.tgz
+    version: 1.0.0
   mariadb:
   - apiVersion: v2
     appVersion: "10.11"
@@ -95,4 +106,4 @@ entries:
     urls:
     - https://github.com/vanegmondgroep/helm-charts/releases/download/sqlsrv-1.0.0/sqlsrv-1.0.0.tgz
     version: 1.0.0
-generated: "2023-04-19T13:30:19.398893354Z"
+generated: "2023-04-19T14:23:07.614251796Z"
