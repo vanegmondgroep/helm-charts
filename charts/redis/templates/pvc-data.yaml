@@ -1,0 +1,14 @@
+{{- if not .Values.volume.hostPath }}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ include "redis.fullname" . }}-data
+  labels:
+    {{- include "redis.labels" . | nindent 4 }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: "{{ .Values.volume.storage }}"
+{{- end }}
