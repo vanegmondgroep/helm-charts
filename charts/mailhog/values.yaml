@@ -1,0 +1,27 @@
+replicaCount: 1
+
+image:
+  repository: mailhog/mailhog
+  pullPolicy: Always
+  tag: ""
+
+service:
+  type: ClusterIP
+  port: 8025
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+    # cert-manager.io/cluster-issuer: lets-encrypt
+  hosts:
+    - host: mailhog.vanegmond.cloud
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+  #  - secretName: mailhog-ingress-tls
+  #    hosts:
+  #      - mailhog.vanegmond.cloud
+
+environment: {}
