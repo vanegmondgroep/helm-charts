@@ -5,8 +5,7 @@ schedulerReplicaCount: 1
 image:
   repository: ghcr.io/vanegmondgroep/data-sync
   pullPolicy: Always
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "2.x"
 
 imageCredentials:
   registry: ghcr.io
