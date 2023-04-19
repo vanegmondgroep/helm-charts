@@ -3,6 +3,16 @@ entries:
   data-sync:
   - apiVersion: v2
     appVersion: latest
+    created: "2023-04-19T11:59:57.047270397Z"
+    description: Deploy Data Sync to a Kubernetes cluster.
+    digest: 9ef3b6d91a90fef3a436637f2ff302703b7c565319609a0011f5f9cd27d79b77
+    name: data-sync
+    type: application
+    urls:
+    - https://github.com/vanegmondgroep/helm-charts/releases/download/data-sync-1.0.3/data-sync-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
+    appVersion: latest
     created: "2023-04-19T10:22:52.867133633Z"
     description: Deploy Data Sync to a Kubernetes cluster.
     digest: 6f05f4d7935e394a4c4aadbdd222577cf5d025b74287d29c895e31b0adb8348d
@@ -21,4 +31,4 @@ entries:
     urls:
     - https://github.com/vanegmondgroep/helm-charts/releases/download/data-sync-1.0.1/data-sync-1.0.1.tgz
     version: 1.0.1
-generated: "2023-04-19T10:22:52.867147533Z"
+generated: "2023-04-19T11:59:57.047280697Z"
