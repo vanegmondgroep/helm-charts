@@ -1,5 +1,6 @@
 replicaCount: 1
-workerReplicaCount: 2
+workerReplicaCount: 1
+schedulerReplicaCount: 1
 
 image:
   repository: ghcr.io/vanegmondgroep/data-sync
@@ -32,4 +33,5 @@ ingress:
   #      - data-sync.vanegmond.cloud
 
 # Add environment variables from .env.example
-environment: []
+environment: {}
+  # APP_NAME: "Projecten Database"

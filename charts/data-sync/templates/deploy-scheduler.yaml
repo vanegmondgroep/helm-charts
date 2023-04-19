@@ -6,7 +6,7 @@ metadata:
   labels:
     {{- include "data-sync.labels" . | nindent 4 }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.schedulerReplicaCount }}
   selector:
     matchLabels:
       {{- include "data-sync.selectorLabels" . | nindent 6 }}
