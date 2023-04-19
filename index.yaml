@@ -31,4 +31,15 @@ entries:
     urls:
     - https://github.com/vanegmondgroep/helm-charts/releases/download/data-sync-1.0.1/data-sync-1.0.1.tgz
     version: 1.0.1
-generated: "2023-04-19T11:59:57.047280697Z"
+  runtime:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-04-19T12:00:12.335147857Z"
+    description: Runtime container optimized for Laravel & WordPress.
+    digest: 626b3b42d6fff18e32d86f59d0647a662d7b6ec03261eea558ded86a6b569c54
+    name: runtime
+    type: application
+    urls:
+    - https://github.com/vanegmondgroep/helm-charts/releases/download/runtime-1.0.0/runtime-1.0.0.tgz
+    version: 1.0.0
+generated: "2023-04-19T12:00:12.335165057Z"
