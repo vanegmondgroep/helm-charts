@@ -3,6 +3,16 @@ entries:
   data-sync:
   - apiVersion: v2
     appVersion: latest
+    created: "2023-04-19T13:30:18.760988063Z"
+    description: Project management application for the Van Egmond Group.
+    digest: da7cb66944fabd481cd491aad0d22001a5907b4d5712b7dbf6fe285f5437251d
+    name: data-sync
+    type: application
+    urls:
+    - https://github.com/vanegmondgroep/helm-charts/releases/download/data-sync-1.0.4/data-sync-1.0.4.tgz
+    version: 1.0.4
+  - apiVersion: v2
+    appVersion: latest
     created: "2023-04-19T11:59:57.047270397Z"
     description: Deploy Data Sync to a Kubernetes cluster.
     digest: 9ef3b6d91a90fef3a436637f2ff302703b7c565319609a0011f5f9cd27d79b77
@@ -31,7 +41,39 @@ entries:
     urls:
     - https://github.com/vanegmondgroep/helm-charts/releases/download/data-sync-1.0.1/data-sync-1.0.1.tgz
     version: 1.0.1
+  mariadb:
+  - apiVersion: v2
+    appVersion: "10.11"
+    created: "2023-04-19T13:30:18.907584519Z"
+    description: The open source relational database.
+    digest: b2c2513d2ef9e1a95366c46f2f28edb24b43f24adc67d5f4ff8778231ca6c297
+    name: mariadb
+    type: application
+    urls:
+    - https://github.com/vanegmondgroep/helm-charts/releases/download/mariadb-1.0.0/mariadb-1.0.0.tgz
+    version: 1.0.0
+  redis:
+  - apiVersion: v2
+    appVersion: "7.0"
+    created: "2023-04-19T13:30:19.081355499Z"
+    description: Open source key-value store that functions as a data structure server.
+    digest: 401e00e077a965e4b2e13a8b6621f430622da33c6805fb1de449b5e77ea1023c
+    name: redis
+    type: application
+    urls:
+    - https://github.com/vanegmondgroep/helm-charts/releases/download/redis-1.0.0/redis-1.0.0.tgz
+    version: 1.0.0
   runtime:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-04-19T13:30:19.239073383Z"
+    description: Runtime container optimized for Laravel & WordPress.
+    digest: db56b04a8dfc412c9e196caa1b342a6cf22bbff20f62702cb51afe0fcb1d4711
+    name: runtime
+    type: application
+    urls:
+    - https://github.com/vanegmondgroep/helm-charts/releases/download/runtime-1.0.1/runtime-1.0.1.tgz
+    version: 1.0.1
   - apiVersion: v2
     appVersion: latest
     created: "2023-04-19T12:00:12.335147857Z"
@@ -42,4 +84,15 @@ entries:
     urls:
     - https://github.com/vanegmondgroep/helm-charts/releases/download/runtime-1.0.0/runtime-1.0.0.tgz
     version: 1.0.0
-generated: "2023-04-19T12:00:12.335165057Z"
+  sqlsrv:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-04-19T13:30:19.398772555Z"
+    description: Microsoft SQL Server based on Ubuntu.
+    digest: 350aa296372b8c811f856ed579e325eb6e1c50e4d8c6f6640fba1fe03176722f
+    name: sqlsrv
+    type: application
+    urls:
+    - https://github.com/vanegmondgroep/helm-charts/releases/download/sqlsrv-1.0.0/sqlsrv-1.0.0.tgz
+    version: 1.0.0
+generated: "2023-04-19T13:30:19.398893354Z"
