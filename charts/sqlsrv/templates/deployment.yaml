@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "sqlsrv.fullname" . }}
+  labels:
+    {{- include "sqlsrv.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "sqlsrv.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "sqlsrv.selectorLabels" . | nindent 8 }}
+    spec:
+      imagePullSecrets:
+        - name: {{ include "sqlsrv.fullname" . }}-pull
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: sqlsrv
+              containerPort: 1433
+              protocol: TCP
+          envFrom:
+            - secretRef:
+                name: {{ include "sqlsrv.fullname" . }}-env
+          volumeMounts:
+            - mountPath: /var/opt/mssql
+              name: data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: {{ include "sqlsrv.fullname" . }}-data

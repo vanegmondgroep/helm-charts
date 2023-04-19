@@ -1,0 +1,13 @@
+image:
+  repository: mcr.microsoft.com/mssql/server
+  pullPolicy: Always
+  tag: "2022-latest"
+
+service:
+  type: ClusterIP
+  port: 1433
+
+volume:
+  storage: 10G
+
+environment: {}

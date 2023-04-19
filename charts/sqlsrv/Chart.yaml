@@ -1,0 +1,6 @@
+apiVersion: v2
+name: sqlsrv
+description: Microsoft SQL Server based on Ubuntu.
+type: application
+version: 1.0.0
+appVersion: "latest"
