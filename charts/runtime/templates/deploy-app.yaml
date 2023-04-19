@@ -1,0 +1,44 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "runtime.fullname" . }}-app
+  labels:
+    {{- include "runtime.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "runtime.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "runtime.selectorLabels" . | nindent 8 }}
+    spec:
+      imagePullSecrets:
+        - name: {{ include "runtime.fullname" . }}-pull
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          envFrom:
+            - secretRef:
+                name: {{ include "runtime.fullname" . }}-env
+          volumeMounts:
+            - mountPath: /www/app
+              name: data
+      volumes:
+        {{- if .Values.volume.hostPath }}
+        - name: data
+          hostPath:
+            path: {{ .Values.volume.hostPath }}
+            type: DirectoryOrCreate
+        {{ else }}
+        - name: data
+          persistentVolumeClaim:
+            claimName: {{ include "runtime.fullname" . }}-data
+        {{ end }}
