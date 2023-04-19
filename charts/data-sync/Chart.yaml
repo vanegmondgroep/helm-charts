@@ -1,6 +1,0 @@
-apiVersion: v2
-name: data-sync
-description: Deploy Data Sync to a Kubernetes cluster.
-type: application
-version: 1.0.0
-appVersion: "latest"
