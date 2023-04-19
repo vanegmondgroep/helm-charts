@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "data-sync.fullname" . }}-app
+  name: {{ include "data-sync.fullname" . }}
   labels:
     {{- include "data-sync.labels" . | nindent 4 }}
 spec:
@@ -14,6 +14,8 @@ spec:
     metadata:
       labels:
         {{- include "data-sync.selectorLabels" . | nindent 8 }}
+      annotations:
+        rollme: {{ randAlphaNum 5 | quote }}
     spec:
       imagePullSecrets:
         - name: {{ include "data-sync.fullname" . }}-pull
