@@ -1,0 +1,14 @@
+{{- if not .Values.volume.hostPath }}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ include "mariadb.fullname" . }}-data
+  labels:
+    {{- include "mariadb.labels" . | nindent 4 }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: "{{ .Values.volume.storage }}"
+{{- end }}

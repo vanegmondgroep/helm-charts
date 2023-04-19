@@ -1,0 +1,13 @@
+image:
+  repository: mariadb
+  pullPolicy: Always
+  tag: ""
+
+service:
+  type: ClusterIP
+  port: 3306
+
+volume:
+  storage: 10G
+
+environment: {}

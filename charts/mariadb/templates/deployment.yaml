@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "mariadb.fullname" . }}
+  labels:
+    {{- include "mariadb.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "mariadb.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "mariadb.selectorLabels" . | nindent 8 }}
+    spec:
+      imagePullSecrets:
+        - name: {{ include "mariadb.fullname" . }}-pull
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: mariadb
+              containerPort: 3306
+              protocol: TCP
+          envFrom:
+            - secretRef:
+                name: {{ include "mariadb.fullname" . }}-env
+          volumeMounts:
+            - mountPath: /var/lib/mysql
+              name: data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: {{ include "mariadb.fullname" . }}-data
